@@ -1,6 +1,11 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
+import type { StoryblokTeaserBlok } from '@/lib/storyblok-types';
 
-const Teaser = ({ blok }) => {
+type TeaserProps = {
+	blok: StoryblokTeaserBlok;
+};
+
+const Teaser = ({ blok }: TeaserProps) => {
 	return (
 		<div className="teaser" {...storyblokEditable(blok)}>
 			<h1>{blok.headline}</h1>

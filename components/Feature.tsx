@@ -1,6 +1,11 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
+import type { StoryblokFeatureBlok } from '@/lib/storyblok-types';
 
-const Feature = ({ blok }) => {
+type FeatureProps = {
+	blok: StoryblokFeatureBlok;
+};
+
+const Feature = ({ blok }: FeatureProps) => {
 	return (
 		<div className="feature" {...storyblokEditable(blok)}>
 			<span>{blok.name}</span>

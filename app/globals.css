@@ -1,1 +1,24 @@
 @import 'https://a.storyblok.com/f/212319/x/e6ccda03b8/blueprint-blank.css';
+@import "tailwindcss";
+
+@theme {
+	--color-brand-blue: #0070fa;
+	--color-brand-navy: #16215b;
+	--color-brand-muted: #6f7ba8;
+}
+
+@layer base {
+	*,
+	::before,
+	::after {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+	}
+}
