@@ -1,9 +1,11 @@
+import { storyblokEditable } from '@storyblok/react/rsc';
 import ButtonLink from '@/components/ui/ButtonLink';
 import SectionShell from '@/components/ui/SectionShell';
+import type { StoryblokLandingSectionProps } from '@/lib/storyblok/types';
 
-export default function CtaSection() {
+export default function CtaSection({ blok }: StoryblokLandingSectionProps) {
 	return (
-		<SectionShell>
+		<SectionShell {...(blok ? storyblokEditable(blok) : {})}>
 			<div className="relative overflow-hidden rounded-[28px] bg-brand-blue px-6 py-10 text-white sm:px-9 sm:py-12 lg:flex lg:items-center lg:justify-between lg:px-12 lg:py-14">
 				<div className="pointer-events-none absolute right-[-10%] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border-[34px] border-white/8" />
 				<div className="pointer-events-none absolute right-[8%] top-[18%] h-24 w-24 rounded-full bg-white/6 blur-2xl" />

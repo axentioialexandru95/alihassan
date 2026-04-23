@@ -1,10 +1,12 @@
+import { storyblokEditable } from '@storyblok/react/rsc';
 import SectionHeading from '@/components/ui/SectionHeading';
 import SectionShell from '@/components/ui/SectionShell';
+import type { StoryblokLandingSectionProps } from '@/lib/storyblok/types';
 import { benefits } from '../data';
 
-export default function BenefitsSection() {
+export default function BenefitsSection({ blok }: StoryblokLandingSectionProps) {
 	return (
-		<SectionShell>
+		<SectionShell {...(blok ? storyblokEditable(blok) : {})}>
 			<div className="rounded-[32px] bg-brand-soft px-5 py-8 sm:px-7 sm:py-10">
 				<SectionHeading
 					align="center"

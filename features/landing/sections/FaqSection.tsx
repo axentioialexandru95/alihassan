@@ -1,10 +1,16 @@
+import { storyblokEditable } from '@storyblok/react/rsc';
 import SectionHeading from '@/components/ui/SectionHeading';
+import type { StoryblokLandingSectionProps } from '@/lib/storyblok/types';
 import { faqItems } from '../data';
 import { ChevronDownIcon } from '../icons';
 
-export default function FaqSection() {
+export default function FaqSection({ blok }: StoryblokLandingSectionProps) {
 	return (
-		<section className="px-3 md:px-4" id="blog">
+		<section
+			{...(blok ? storyblokEditable(blok) : {})}
+			className="px-3 md:px-4"
+			id="blog"
+		>
 			<div className="px-2 py-5 sm:px-6 sm:py-7">
 				<SectionHeading
 					align="center"
