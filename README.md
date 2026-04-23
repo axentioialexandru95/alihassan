@@ -75,7 +75,7 @@ The first run generates a self-signed certificate in `certificates/`. Open the H
 > [!IMPORTANT]
 > To connect the Storyblok Visual Editor, the local project must run over HTTPS. Learn more in the [Visual Editor concept](https://www.storyblok.com/docs/concepts/visual-editor#local-development-via-https).
 
-Back in Storyblok, open the **Home** story to start editing.
+Back in Storyblok, open the **Home** story to start editing. Homepage section block setup is documented in [ARCHITECTURE.md](./ARCHITECTURE.md#homepage-cms-blocks).
 
 Happy building!
 

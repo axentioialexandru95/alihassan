@@ -1,15 +1,22 @@
 import Image from 'next/image';
-import { storyblokEditable } from '@storyblok/react/rsc';
-import type { StoryblokLandingSectionProps } from '@/lib/storyblok/types';
 
-export default function HeroSection({ blok }: StoryblokLandingSectionProps) {
+type HeroSectionProps = {
+  title?: string;
+  subtitle?: string;
+};
+
+const fallbackTitle = 'Pharmacy';
+const fallbackSubtitle =
+  'Operational bottlenecks, frequent billing errors, and mismanaged schedules can lead to revenue loss and frustrated patients.';
+
+export default function HeroSection({
+  subtitle = fallbackSubtitle,
+  title = fallbackTitle,
+}: HeroSectionProps = {}) {
   return (
-    <section
-      {...(blok ? storyblokEditable(blok) : {})}
-      className="px-3 md:px-4 md:pb-4"
-    >
+    <section className="md:px-4 md:pb-4">
       <div
-        className="relative isolate mx-auto min-h-[430px] max-w-[1390px] overflow-hidden rounded-t-[32px] bg-brand-navy sm:min-h-[520px] lg:h-[clamp(520px,45.32vw,630px)] lg:min-h-0"
+        className="relative isolate mx-auto min-h-[430px] max-w-[1400px] overflow-hidden rounded-t-[32px] bg-brand-navy sm:min-h-[520px] lg:h-[clamp(520px,45.32vw,630px)] lg:min-h-0"
         data-node-id="7:1047"
         id="home"
       >
@@ -17,7 +24,7 @@ export default function HeroSection({ blok }: StoryblokLandingSectionProps) {
           className="pointer-events-none absolute left-[4%] top-[-2%] z-0 font-(family-name:--font-brand) text-[clamp(5.6rem,20.8vw,18.8125rem)] leading-normal font-semibold tracking-[-0.05em] text-brand-hero-text sm:top-[-3%] lg:left-[49px] lg:top-[159.5px] lg:-translate-y-1/2 lg:text-[clamp(12rem,21.65vw,290px)] lg:tracking-[-15.05px]"
           data-node-id="9:2192"
         >
-          Pharmacy
+          {title}
         </h1>
 
         <div
@@ -39,8 +46,7 @@ export default function HeroSection({ blok }: StoryblokLandingSectionProps) {
           data-node-id="11:80"
           href="#services"
         >
-          Operational bottlenecks, frequent billing errors, and mismanaged
-          schedules can lead to revenue loss and frustrated patients.
+          {subtitle}
         </a>
 
         <a

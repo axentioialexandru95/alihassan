@@ -16,6 +16,13 @@ export interface StoryblokTeaserBlok extends SbBlokData {
 	headline: string;
 }
 
+export interface StoryblokHeroBlok extends SbBlokData {
+	Title?: string;
+	Subtitle?: string;
+	title?: string;
+	subtitle?: string;
+}
+
 export type StoryblokLandingSectionBlok = SbBlokData;
 
 export type StoryblokLandingSectionProps = {

@@ -53,7 +53,7 @@ export default function ProblemCardsSection({ blok }: StoryblokLandingSectionPro
   return (
     <section
       {...(blok ? storyblokEditable(blok) : {})}
-      className="py-[-10px] px-3 pb-4 md:px-4 md:pb-5"
+      className="relative my-[-40px] px-3 pb-4 md:px-4 md:pb-5"
     >
       <div
         className="rounded-[32px] bg-brand-soft px-5 py-7 sm:px-8 sm:py-10 xl:px-[58px] xl:py-[50px]"
