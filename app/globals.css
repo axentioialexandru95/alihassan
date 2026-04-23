@@ -1,10 +1,24 @@
-@import 'https://a.storyblok.com/f/212319/x/e6ccda03b8/blueprint-blank.css';
 @import "tailwindcss";
+
+@font-face {
+	font-family: "Rebond Grotesque";
+	font-style: normal;
+	font-weight: 600 800;
+	font-display: swap;
+	src:
+		local("Rebond Grotesque"),
+		local("Rebond Grotesque Semibold"),
+		local("Rebond Grotesque SemiBold"),
+		local("Rebond Grotesque Semi Bold"),
+		local("RebondGrotesque");
+}
 
 @theme {
 	--color-brand-blue: #0070fa;
 	--color-brand-navy: #16215b;
+	--color-brand-soft: #f4f6fb;
 	--color-brand-muted: #6f7ba8;
+	--font-brand: "Rebond Grotesque", var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -20,5 +34,10 @@
 
 	body {
 		margin: 0;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
 	}
 }

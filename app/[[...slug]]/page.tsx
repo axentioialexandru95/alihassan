@@ -1,5 +1,7 @@
 import { StoryblokStory } from '@storyblok/react/rsc';
 import type { ISbStoriesParams, ISbStoryData } from '@storyblok/react/rsc';
+import DesignSystemPage from '@/components/DesignSystemPage';
+import LandingPage from '@/components/landing-page/LandingPage';
 import { getStoryblokApi } from '@/lib/storyblok';
 
 type StoryPageProps = {
@@ -16,6 +18,14 @@ export default async function StoryPage({ params }: StoryPageProps) {
 	const { slug } = await params;
 
 	const fullSlug = slug ? slug.join('/') : 'home';
+
+	if (!slug?.length || fullSlug === 'home') {
+		return <LandingPage />;
+	}
+
+	if (fullSlug === 'design-system') {
+		return <DesignSystemPage />;
+	}
 
 	const sbParams: ISbStoriesParams = {
 		version: 'draft',
