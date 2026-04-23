@@ -1,11 +1,16 @@
 import Image from 'next/image';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import SectionHeading from '@/components/ui/SectionHeading';
+import type { StoryblokLandingSectionProps } from '@/lib/storyblok/types';
 import { processSteps } from '../data';
 import { ChevronDownIcon } from '../icons';
 
-export default function ProcessSection() {
+export default function ProcessSection({ blok }: StoryblokLandingSectionProps) {
 	return (
-		<section className="px-3 pb-4 md:px-4 md:pb-5">
+		<section
+			{...(blok ? storyblokEditable(blok) : {})}
+			className="px-3 pb-4 md:px-4 md:pb-5"
+		>
 			<div className="px-2 pt-4 pb-2 sm:px-6 sm:pt-6">
 				<SectionHeading
 					align="center"
