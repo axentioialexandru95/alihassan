@@ -18,6 +18,24 @@
 	--color-brand-navy: #16215b;
 	--color-brand-soft: #f4f6fb;
 	--color-brand-muted: #6f7ba8;
+	--color-asklepios-gray-60: #5d6a85;
+	--color-brand-mint: #18e4a1;
+	--color-brand-cta-text: #eefff6;
+	--color-brand-hero-text: #dbecff;
+	--color-brand-service-copy: #daeaff;
+	--color-brand-border-cool: #c0d0e5;
+	--color-brand-pink: #e7c2d4;
+	--color-brand-process-blue: #90b6f4;
+	--color-brand-hover-soft: #eef6ff;
+	--color-brand-hover-navy: #0d1d66;
+	--color-problem-operational: #f0da6a;
+	--color-problem-staff: #a0e2e1;
+	--color-problem-financial: #e7c2d4;
+	--color-problem-scheduling: #93bdf7;
+	--radius-section: 32px;
+	--radius-card: 24px;
+	--radius-pill: 999px;
+	--radius-icon-tile: 16px;
 	--font-brand: "Rebond Grotesque", var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 

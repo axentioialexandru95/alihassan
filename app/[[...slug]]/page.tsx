@@ -1,8 +1,9 @@
 import { StoryblokStory } from '@storyblok/react/rsc';
-import type { ISbStoriesParams, ISbStoryData } from '@storyblok/react/rsc';
-import DesignSystemPage from '@/components/DesignSystemPage';
-import LandingPage from '@/components/landing-page/LandingPage';
-import { getStoryblokApi } from '@/lib/storyblok';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
+import DesignSystemPage from '@/features/design-system/DesignSystemPage';
+import { getRouteSlug, isStaticRouteSlug } from '@/lib/routes';
+import { getStoryBySlug } from '@/lib/storyblok/client';
 
 type StoryPageProps = {
 	params: Promise<{
@@ -10,30 +11,26 @@ type StoryPageProps = {
 	}>;
 };
 
-type StoryblokStoryResponse = {
-	story: ISbStoryData;
-};
-
 export default async function StoryPage({ params }: StoryPageProps) {
 	const { slug } = await params;
+	const fullSlug = getRouteSlug(slug);
 
-	const fullSlug = slug ? slug.join('/') : 'home';
-
-	if (!slug?.length || fullSlug === 'home') {
-		return <LandingPage />;
-	}
-
-	if (fullSlug === 'design-system') {
+	if (isStaticRouteSlug(fullSlug)) {
 		return <DesignSystemPage />;
 	}
 
-	const sbParams: ISbStoriesParams = {
-		version: 'draft',
-	};
+	const { isEnabled } = await draftMode();
+	const version = isEnabled ? 'draft' : 'published';
+	const story = await getStoryBySlug(fullSlug, version);
 
-	const storyblokApi = getStoryblokApi();
-	const { data } = await storyblokApi.get(`cdn/stories/${fullSlug}`, sbParams);
-	const story = (data as StoryblokStoryResponse).story;
+	if (!story) {
+		notFound();
+	}
 
-	return <StoryblokStory story={story} />;
+	return (
+		<StoryblokStory
+			bridgeOptions={isEnabled ? {} : undefined}
+			story={story}
+		/>
+	);
 }

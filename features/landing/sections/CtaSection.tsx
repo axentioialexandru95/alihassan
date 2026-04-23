@@ -1,0 +1,29 @@
+import ButtonLink from '@/components/ui/ButtonLink';
+import SectionShell from '@/components/ui/SectionShell';
+
+export default function CtaSection() {
+	return (
+		<SectionShell>
+			<div className="relative overflow-hidden rounded-[28px] bg-brand-blue px-6 py-10 text-white sm:px-9 sm:py-12 lg:flex lg:items-center lg:justify-between lg:px-12 lg:py-14">
+				<div className="pointer-events-none absolute right-[-10%] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border-[34px] border-white/8" />
+				<div className="pointer-events-none absolute right-[8%] top-[18%] h-24 w-24 rounded-full bg-white/6 blur-2xl" />
+				<div className="relative z-10 max-w-[28rem]">
+					<div className="text-6xl leading-none text-white/32">&quot;</div>
+					<h2 className="mt-2 font-(family-name:--font-brand) text-[2.35rem] leading-[1.02] font-semibold tracking-[-0.06em] text-white sm:text-[3.1rem]">
+						Make Medical Billing Effortless Today
+					</h2>
+					<p className="mt-4 text-[15px] leading-8 text-white/82">
+						Contact us or sign up for our medical billing services now.
+					</p>
+				</div>
+				<ButtonLink
+					className="relative z-10 mt-8 px-6 py-3 text-sm lg:mt-0"
+					href="#contact"
+					variant="white"
+				>
+					Get Started Today!
+				</ButtonLink>
+			</div>
+		</SectionShell>
+	);
+}

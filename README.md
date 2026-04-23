@@ -9,6 +9,8 @@ This blueprint is ideal for kickstarting new Storyblok and Next.js projects. Wha
 - Dynamic routing to fetch and render new stories automatically.
 - Minimal styling.
 
+Project-specific structure, route ownership, Storyblok component rules, preview handling, and design-token policy are documented in [ARCHITECTURE.md](./ARCHITECTURE.md).
+
 > [!TIP]
 > Follow our [Next.js guide](https://www.storyblok.com/docs/guides/nextjs/) for a step-by-step walkthrough and learn more about Storyblok's range of features, including rich text rendering, custom content modeling, and internationalization. See the [@storyblok/react package reference](https://storyblok.com/docs/packages/storyblok-react) for further information.
 
@@ -37,6 +39,7 @@ In the root of the project, create a `.env` file to store the Storyblok access t
 
 ```sh
 STORYBLOK_DELIVERY_API_TOKEN=<REPLACE_WITH_YOUR_TOKEN>
+STORYBLOK_PREVIEW_SECRET=<REPLACE_WITH_RANDOM_PREVIEW_SECRET>
 ```
 
 > [!IMPORTANT]
@@ -59,6 +62,8 @@ Run the development server with HTTPS enabled:
 ```sh
 npm run dev:https
 ```
+
+Draft preview is enabled through `/api/preview?secret=<STORYBLOK_PREVIEW_SECRET>&slug=<path>`. Use `/api/exit-preview?slug=<path>` to leave draft mode.
 
 If you need a custom port, pass it through to the script:
 ```sh
